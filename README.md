@@ -89,6 +89,9 @@ cd csrc/detect/end2end/build
 ./yolov8-pose ../../weights/yolov8n-pose.engine ../../data/bus.jpg
 ~~~
 
+https://ghproxy.com/
+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hyl
+
 
 
 
