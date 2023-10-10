@@ -1,0 +1,11 @@
+numpy<=1.23.5
+onnx==1.14.1
+onnxsim==1.16.0
+opencv-python
+# torch
+# torchvision
+ultralytics
+# tensorrt
+# cuda-python
+# pycuda
+onnxruntime==1.16.0
