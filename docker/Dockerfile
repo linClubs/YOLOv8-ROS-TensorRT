@@ -13,7 +13,10 @@ RUN echo "deb http://mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe 
     && echo "deb http://mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe multiverse" >> /etc/apt/sources.list
 
 # 3 更新源和安装wget和git
-RUN apt update && apt install wget git vim -y
+RUN apt update && apt install wget cmake -y
+
+# ImportError: libGL.so.1:找不到
+RUN apt-get install ffmpeg libsm6 libxext6  -y
 
 # 4 安装conda并初始化
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
@@ -30,5 +33,9 @@ RUN ~/miniconda3/bin/conda config --add channels https://mirrors.tuna.tsinghua.e
     && mkdir ~/.pip && touch ~/.pip/pip.conf \
     && echo "[global]" > ~/.pip/pip.conf  \
     && echo "index-url = https://pypi.tuna.tsinghua.edu.cn/simple/" >> ~/.pip/pip.conf
+
+# 6 其他依赖
+RUN apt install git vim sudo kmod
+RUN apt install libopencv-dev
 
 WORKDIR /root

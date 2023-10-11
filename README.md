@@ -16,29 +16,12 @@ conda create -n yolov8 python=3.8
 pip install torch==1.10.0+cu113 torchvision==0.11.0+cu113 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
 
 
-pip install numpy==1.23.5 onnx==1.14.1 opencv-python == 4.5.4.58 ultralytics onnxruntime==1.16.0
+pip install numpy==1.23.5 onnx==1.14.1  onnxsim opencv-python==4.5.4.58 ultralytics onnxruntime==1.16.0
 # mpmath, flatbuffers, sympy, humanfriendly, coloredlogs
 
 # 1.2 报错
 
-1. 运行`c++`推理报错找不到`TensorRT`相关的库文件
-
-+ 修改方法1：
-在`CMakeLists.txt`加入
-~~~python
-set(TensorRT_ROOT /path/to/TensorRT)   #  /path/to/TensorRT换成自己的tensorRT路径
-set(TensorRT_INCLUDE_DIRS ${TensorRT_ROOT}/include)
-set(TensorRT_LIBS ${TensorRT_ROOT}/lib/)
-
-include_directories(
-   ${TensorRT_INCLUDE_DIRS}
-)
-
-link_directories(
-   ${TensorRT_LIBS}
-)
-~~~
-
+1. 运行`python`脚本报错找不到`TensorRT`相关的库文件
 
 + 修改方法2：
 将缺的TensorRT相关的库文件放进`/usr/lib`
@@ -58,6 +41,20 @@ sudo cp TensorRT-8.5.3.1/targets/x86_64-linux-gnu/lib/libnvonnxparser.so.8 /usr/
 libnvparsers.so.8：cannot open shared object file: No such file or directory
 # 修改将libnvparsers.so.8放入/usr/lib
 sudo cp TensorRT-8.5.3.1/targets/x86_64-linux-gnu/lib/libnvparsers.so.8 /usr/lib
+
+# 错误4 
+libcudnn.so.8 cannot open shared object file
+# 把/usr/local/cuda/
+
+# 错误5
+fatal error: NvInferPlugin.h: No such file or directory
+# 修改
+set(TensorRT_ROOT /root/share/TensorRT-8.5.3.1)
+set(TensorRT_INCLUDE_DIRS ${TensorRT_ROOT}/include)
+set(TensorRT_LIBRARIES ${TensorRT_ROOT}/lib)
+
+# 报错6
+TypeError: pybind11::init(): factory function returned nullptr
 ~~~
 
 
@@ -118,7 +115,7 @@ python export-pose.py
 
 ~~~python
 # 1 det
-python3 build.py --weights weights/yolov8n.onnx --iou-thres 0.65 --conf-thres 0.25 --topk 100 --fp16  --device cuda:0
+python build.py --weights weights/yolov8n.onnx --iou-thres 0.65 --conf-thres 0.25 --topk 100 --fp16  --device cuda:0
 
 # 2 seg, 增加--seg参数
 python build.py --weights weights/yolov8n-seg.onnx --iou-thres 0.65 --conf-thres 0.25 --topk 100 --fp16  --device cuda:0 --seg
