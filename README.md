@@ -1,4 +1,8 @@
 
+https://ghproxy.com/
+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hyl
+
+
 ~~~
 mpmath, flatbuffers, sympy, humanfriendly, coloredlogs, onnxruntime
 ~~~
@@ -88,11 +92,6 @@ cd csrc/detect/end2end/build
 # 3 pose
 ./yolov8-pose ../../weights/yolov8n-pose.engine ../../data/bus.jpg
 ~~~
-
-https://ghproxy.com/
-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hyl
-
-
 
 
 
