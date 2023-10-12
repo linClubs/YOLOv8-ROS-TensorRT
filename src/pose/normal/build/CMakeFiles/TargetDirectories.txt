@@ -1,3 +1,0 @@
-/home/lin/code/YOLOv8-TensorRT/csrc/pose/normal/build/CMakeFiles/rebuild_cache.dir
-/home/lin/code/YOLOv8-TensorRT/csrc/pose/normal/build/CMakeFiles/edit_cache.dir
-/home/lin/code/YOLOv8-TensorRT/csrc/pose/normal/build/CMakeFiles/yolov8-pose.dir
