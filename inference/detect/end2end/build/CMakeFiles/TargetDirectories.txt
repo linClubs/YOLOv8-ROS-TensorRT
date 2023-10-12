@@ -1,3 +1,0 @@
-/home/lin/code/YOLOv8-ROS-TensorRT/inference/detect/end2end/build/CMakeFiles/rebuild_cache.dir
-/home/lin/code/YOLOv8-ROS-TensorRT/inference/detect/end2end/build/CMakeFiles/edit_cache.dir
-/home/lin/code/YOLOv8-ROS-TensorRT/inference/detect/end2end/build/CMakeFiles/yolov8.dir
