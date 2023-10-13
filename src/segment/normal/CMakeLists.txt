@@ -27,7 +27,6 @@ set(TensorRT_ROOT /home/lin/software/TensorRT-8.5.3.1)
 set(TensorRT_INCLUDE_DIRS ${TensorRT_ROOT}/include)
 set(TensorRT_LIBRARIES ${TensorRT_ROOT}/lib)
 
-
 message(STATUS "TensorRT Libs: \n${TensorRT_LIBRARIES}\n")
 message(STATUS "TensorRT Headers: \n${TensorRT_INCLUDE_DIRS}\n")
 
@@ -38,7 +37,7 @@ list(APPEND INCLUDE_DIRS
         include
         )
 
-list(APPEND ALL_LIBS
+list(APPEND ALL_LIBSlll
         ${CUDA_LIBRARIES}
         ${CUDA_LIB_DIR}
         ${OpenCV_LIBRARIES}

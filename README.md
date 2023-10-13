@@ -169,16 +169,16 @@ set(TensorRT_ROOT /path/to/TensorRT-8.5.3.1)
 
 2. 编译源码
 
-+ `inference/detect/end2end`检测代码为例
++ `src/detect/end2end`检测代码为例
 
 ~~~python
 # 1 进入目录
-cd inference/detect/end2end
+cd src/detect/end2end
 
 # 2 cmake编译
 mkdir build && cd build && cmake .. && make -j
 
-# 3 pose代码就进入inference/pose/normal进行cmake编译
+# 3 pose代码就进入src/pose/normal进行cmake编译
 ~~~
 
 3. `inference`推理
