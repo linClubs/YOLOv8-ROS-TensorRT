@@ -1,4 +1,6 @@
 
++ ros1-noetic版本、CUDA-11.3、TensorRT-8.5
+
 下载官方权重详情见[readme](https://github.com/ultralytics/ultralytics/blob/main/README.zh-CN.md)
 
 + 没有python环境，可以直接用`onnx`格式转`engine`格式，无需`pt`文件
