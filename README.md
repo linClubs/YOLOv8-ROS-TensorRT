@@ -1,6 +1,8 @@
 
 # `YOLOv8-TensorRT-CPP`
 
+ros-noetic版本请移步[noetic-devel分支](https://github.com/linClubs/YOLOv8-ROS-TensorRT/tree/noetic-devel)
+
 # 1. 环境配置
 
 ## 1.1 显卡驱动 `cuda` `cudnn`安装
