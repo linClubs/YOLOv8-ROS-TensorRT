@@ -1,0 +1,7 @@
+<launch>
+    <param name="topic_img"     type="string" value="/camera/color/image_raw" />
+    <param name="topic_res_img" type="string" value="/detect/image" />
+    <param name="weight_name"   type="string" value="yolov8n.engine" />
+
+    <node pkg="yolov8_trt" name="detect" type="detect" output="screen" />
+</launch>
