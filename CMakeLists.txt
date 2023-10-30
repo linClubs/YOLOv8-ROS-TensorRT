@@ -22,20 +22,14 @@ message(STATUS "OpenCV Libs: \n${OpenCV_LIBS}\n")
 message(STATUS "OpenCV Libraries: \n${OpenCV_LIBRARIES}\n")
 message(STATUS "OpenCV Headers: \n${OpenCV_INCLUDE_DIRS}\n")
 
-# TensorRT
-set(TensorRT_INCLUDE_DIRS /usr/include/x86_64-linux-gnu)
-set(TensorRT_LIBRARIES /usr/lib/x86_64-linux-gnu)
-
+# TensorRT  # TensorRT_ROOT的路径设置成自己的
+set(TensorRT_ROOT /home/lin/software/TensorRT-8.5.3.1)
+set(TensorRT_INCLUDE_DIRS ${TensorRT_ROOT}/include)
+set(TensorRT_LIBRARIES ${TensorRT_ROOT}/lib)
 
 message(STATUS "TensorRT Libs: \n${TensorRT_LIBRARIES}\n")
 message(STATUS "TensorRT Headers: \n${TensorRT_INCLUDE_DIRS}\n")
 
-list(APPEND INCLUDE_DIRS
-        ${CUDA_INCLUDE_DIRS}
-        ${OpenCV_INCLUDE_DIRS}
-        ${TensorRT_INCLUDE_DIRS}
-        include
-        )
 
 list(APPEND ALL_LIBS
         ${CUDA_LIBRARIES}
@@ -44,18 +38,31 @@ list(APPEND ALL_LIBS
         ${TensorRT_LIBRARIES}
         )
 
-include_directories(${INCLUDE_DIRS})
+include_directories(
+        ${CUDA_INCLUDE_DIRS}
+        ${OpenCV_INCLUDE_DIRS}
+        ${TensorRT_INCLUDE_DIRS}
+        include
+)
 
-add_executable(${PROJECT_NAME}
-        main.cpp
-        include/yolov8.hpp
-        include/common.hpp
+add_executable(detect
+        src/detect.cpp
         )
 
-target_link_directories(${PROJECT_NAME} PUBLIC ${ALL_LIBS})
-target_link_libraries(${PROJECT_NAME} PRIVATE nvinfer nvinfer_plugin cudart ${OpenCV_LIBS})
+target_link_directories(detect PUBLIC ${ALL_LIBS})
+target_link_libraries(detect PRIVATE nvinfer nvinfer_plugin cudart ${OpenCV_LIBS})
 
-if (${OpenCV_VERSION} VERSION_GREATER_EQUAL 4.7.0)
-    message(STATUS "Build with -DBATCHED_NMS")
-    add_definitions(-DBATCHED_NMS)
-endif ()
+
+add_executable(pose
+        src/pose.cpp
+        )
+
+        target_link_directories(pose PUBLIC ${ALL_LIBS})
+target_link_libraries(pose PRIVATE nvinfer nvinfer_plugin cudart ${OpenCV_LIBS})
+
+add_executable(segment
+        src/segment.cpp
+        )
+
+        target_link_directories(segment PUBLIC ${ALL_LIBS})
+target_link_libraries(segment PRIVATE nvinfer nvinfer_plugin cudart ${OpenCV_LIBS})

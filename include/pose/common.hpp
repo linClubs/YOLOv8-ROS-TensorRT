@@ -1,9 +1,9 @@
 //
-// Created by ubuntu on 3/16/23.
+// Created by ubuntu on 4/7/23.
 //
 
-#ifndef JETSON_SEGMENT_COMMON_HPP
-#define JETSON_SEGMENT_COMMON_HPP
+#ifndef COMMON_HPP
+#define COMMON_HPP
 #include "NvInfer.h"
 #include "opencv2/opencv.hpp"
 #include <sys/stat.h>
@@ -116,7 +116,7 @@ inline bool IsFolder(const std::string& path)
     return (stat(path.c_str(), &buffer) == 0 && S_ISDIR(buffer.st_mode));
 }
 
-namespace seg {
+namespace pose {
 struct Binding {
     size_t         size  = 1;
     size_t         dsize = 1;
@@ -125,10 +125,10 @@ struct Binding {
 };
 
 struct Object {
-    cv::Rect_<float> rect;
-    int              label = 0;
-    float            prob  = 0.0;
-    cv::Mat          boxMask;
+    cv::Rect_<float>   rect;
+    int                label = 0;
+    float              prob  = 0.0;
+    std::vector<float> kps;
 };
 
 struct PreParam {
@@ -138,5 +138,5 @@ struct PreParam {
     float height = 0;
     float width  = 0;
 };
-}  // namespace seg
-#endif  // JETSON_SEGMENT_COMMON_HPP
+}  // namespace pose
+#endif  // POSE_NORMAL_COMMON_HPP

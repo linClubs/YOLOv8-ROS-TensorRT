@@ -1,10 +1,10 @@
 //
 // Created by ubuntu on 1/20/23.
 //
-#ifndef DETECT_END2END_YOLOV8_HPP
-#define DETECT_END2END_YOLOV8_HPP
+#ifndef YOLOV8_HPP
+#define YOLOV8_HPP
 #include "NvInferPlugin.h"
-#include "common.hpp"
+#include "detect/common.hpp"
 #include "fstream"
 using namespace det;
 

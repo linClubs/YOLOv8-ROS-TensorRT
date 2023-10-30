@@ -1,10 +1,10 @@
 //
 // Created by ubuntu on 1/24/23.
 //
-#ifndef SEGMENT_SIMPLE_YOLOV8_SEG_HPP
-#define SEGMENT_SIMPLE_YOLOV8_SEG_HPP
+#ifndef YOLOV8_SEG_HPP
+#define YOLOV8_SEG_HPP
 #include "NvInferPlugin.h"
-#include "common.hpp"
+#include "segment/common.hpp"
 #include <fstream>
 
 using namespace seg;

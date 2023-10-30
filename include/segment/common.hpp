@@ -1,9 +1,8 @@
 //
 // Created by ubuntu on 2/9/23.
 //
-
-#ifndef SEGMENT_SIMPLE_COMMON_HPP
-#define SEGMENT_SIMPLE_COMMON_HPP
+#ifndef COMMON_HPP
+#define COMMON_HPP
 #include "NvInfer.h"
 #include "opencv2/opencv.hpp"
 #include <sys/stat.h>
