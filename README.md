@@ -1,5 +1,5 @@
 
-+ ros1-noetic版本、CUDA-11.3、TensorRT-8.5
++ ros2-galactic版本、CUDA-11.3、TensorRT-8.5
 
 下载官方权重详情见[readme](https://github.com/ultralytics/ultralytics/blob/main/README.zh-CN.md)
 
